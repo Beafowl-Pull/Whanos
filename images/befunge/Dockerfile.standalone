@@ -1,0 +1,8 @@
+FROM node:latest
+
+RUN apk add --no-cache bash
+SHELL ["/bin/bash", "-c"]
+RUN npm i befunge93 -g
+COPY . /app
+WORKDIR /app
+CMD befunge93 main.bf

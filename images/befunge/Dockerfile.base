@@ -1,0 +1,8 @@
+FROM node:latest
+
+RUN apk add --no-cache bash
+SHELL ["/bin/bash", "-c"]
+RUN npm i befunge93 -g
+ONBUILD COPY . /app
+ONBUILD WORKDIR /app
+ONBUILD CMD befunge93 main.bf
