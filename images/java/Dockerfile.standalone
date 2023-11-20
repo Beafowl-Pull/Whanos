@@ -1,0 +1,14 @@
+FROM jelastic/maven:3.9.5-openjdk-21 as builder
+
+SHELL ["/bin/bash", "-c"]
+COPY . /app
+WORKDIR /app
+RUN mvn package
+
+FROM openjdk:21-jdk
+
+RUN apk add --no-cache bash
+SHELL ["/bin/bash", "-c"]
+COPY --from=builder /app /app
+WORKDIR /app
+CMD ["java", "-jar", "target/app.jar"]
