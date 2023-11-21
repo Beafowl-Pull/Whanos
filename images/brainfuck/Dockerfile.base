@@ -1,0 +1,6 @@
+FROM esolang/brainfuck-esotope:latest
+
+SHELL ["/bin/bash", "-c"]
+ONBUILD COPY . /app
+ONBUILD WORKDIR /app
+ONBUILD CMD brainfuck-esotope app.bf
