@@ -1,3 +1,6 @@
+configuration-as-code:
+  deprecated: warn
+
 jenkins:
   systemMessage: "Welcome to the Whanos instance.
                                                                                                                                                         
@@ -81,9 +84,14 @@ jenkins:
               - "Overall/Administer"
             assignments:
               - "admin"
+
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
+
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false
 
 jobs:
   - file: /jenkins/job_dsl.groovy

@@ -4,3 +4,4 @@ whanos_config.yml
 
 .idea
 .vscode
+.env

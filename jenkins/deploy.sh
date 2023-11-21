@@ -1,34 +1,33 @@
 #!/bin/bash
 
 function detect_language() {
-    local file_patterns=(
-        ["Makefile"]="c"
-        ["app/pom.xml"]="java"
-        ["package.json"]="javascript"
-        ["requirements.txt"]="python"
-        ["app/main.bf"]="befunge"
-        ["CMakelists.txt"]="cpp"
-    )
+    declare -A file_patterns
+    file_patterns["CMakeLists.txt"]="cpp"
+    file_patterns["Makefile"]="c"
+    file_patterns["app/pom.xml"]="java"
+    file_patterns["package.json"]="javascript"
+    file_patterns["requirements.txt"]="python"
+    file_patterns["app/main.bf"]="befunge"
+
     local language_detected=()
     for file in "${!file_patterns[@]}"; do
-        if [[ -f $file || ($(find . -type f -name "$file") != "") ]]; then
+        if [[ -f "$file" ]]; then
             language_detected+=("${file_patterns[$file]}")
+            continue
         fi
     done
-    if [[ -f Makefile && $(find . -type f -name "*.bf") ]]; then
+    if [[ -f "Makefile" && $(find . -type f -name "*.bf") != "" ]]; then
         language_detected+=("brainfuck")
     fi
     echo "${language_detected[@]}"
 }
 
 function build_and_push_image() {
-    local image_name=$DOCKER_REGISTRY/whanos/whanos-$1-$2
-    local dockerfile_arg=""
     if [[ ! -f Dockerfile ]]; then
-        dockerfile_arg="-f /images/$2/Dockerfile.standalone"
+        docker build -f /images/$2/Dockerfile.standalone -t ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 .
+        docker push ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 || exit 1
     fi
-    docker build . "$dockerfile_arg" -t "$image_name" || exit 1
-    docker push "$image_name" || exit 1
+    docker build -t ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 .
 }
 
 function deploy_or_clean() {
@@ -72,4 +71,4 @@ fi
 echo "${LANGUAGES[0]} matched"
 
 build_and_push_image "$1" "${LANGUAGES[0]}"
-deploy_or_clean "$1"
+#deploy_or_clean "$1"

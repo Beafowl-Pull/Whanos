@@ -1,4 +1,4 @@
-FROM gxx:latest
+FROM gcc:latest
 
 SHELL ["/bin/bash", "-c"]
 ONBUILD COPY . /app

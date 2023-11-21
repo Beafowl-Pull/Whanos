@@ -1,0 +1,8 @@
+whanos:
+  jenkins:
+    image:
+    password:
+
+  docker:
+    registry:
+    host:w
