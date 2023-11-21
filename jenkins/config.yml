@@ -1,0 +1,89 @@
+jenkins:
+  systemMessage: "Welcome to the Whanos instance.
+                                                                                                                                                        
+                                                                                                                                                      
+                                                                                                                                                      
+                                                           ..~!!!!~~^::....                                                                           
+                                                        .~?Y555555PP5PPP5555YYJ?7~^:.                                                                 
+                                                     .^7JJYYJYYYYYYYY5555P555PPGGBBBBGPY7^.                                                           
+                                                  .::^!?JJYY5YJJJ????JJJJJJYYY55PGGGBB##&&#B5!.                                                       
+                                                .:...:^!?JYJJ?JJ?J?77?JJ???JJJY5PGGGGGGB#&&&&&&G7.                                                    
+                                              ...  .:^~7?J?J???JJJJJYJJJ??7JJJ5PPPPGGGGB##&&&&&&@&J.                                                  
+                                            ....  .:~777?JYJJJJ7?JYYYY??J?JJJY55PGGGGGBB##&&&&&&&&&P                                                  
+                                           .:.:^::^!77???JJ?77!!7JJJ?77??7?JJYY5PPGGGGGB#&#&&&&&&&&&P.                                                
+                                          .~~~7?777777JJ77??!!!!!7777!7?77!77?Y55PPGGPGB###&&&&&&&&&&5                                                
+                                          ~7!7JJ???7!!77~!!!!~!!77777!!??77???JY5PPPPGGB###&&&&&&&&&&&J                                               
+                                         .????JY?77!!7777??7!!!!7777!!!77??77?JY555PPGGB#B#&#&&&&&&&&&&J                                              
+                                         :JJJJJYJ77JJ?7~~~~!~~!!!!!!7777????JY55Y555PPGBBG##B&##&&&&&&&B^                                             
+                                         7JJ?JYYYJ??J??7!~~!!!!!!!!77!!!77!7?Y55Y555PPPBG5B#####&&&&&###7                                             
+                                         ?Y?7JY5JY?7?J7~~~~!~~~~~!777!!7?~~!?J5PP5YYYY5G5YB##B##&&&####BJ.                                            
+                                        .JY?JJY5JJ?7!?!~!!77!~~~~!???!!7?!:^7?Y5BBY???YGJ?P#BB##&&##BBGG?.                                            
+                                        .JYYYYY5J7?~~77!~~!7!7~^^~?JJ~^!JY~^~7JGBY7???PB7YG#BB##&#&#BBG5?.                                            
+                                         J5YYYJYJ~!^~?J~~~~!7!~~~!7?5J^~?5?~!JPG555PGB#BB&&&##BPP#&BBGGPP!                                            
+                                         !P555YY?!7????J7777!!7???J5P7^~?YP5PB###&&&&&&&&##BB#GGP#&#BBBB#B!.                                          
+                                         .PPYYY5PPYY5GPGBBBGBGGGGGGG?7?Y55G#&&&@@@@@@@@&&@&&&&&##&#&BPB#&@@J                                          
+                                          7PYY75PPYY5PB##&&@@&&&&&#GJ7~!?YG&@@@@@@@@&#GGGBB&&&&####&#GB##&&P                                          
+                                        .!5PJ?7Y5PGB&&&&###&&#BBBGBGJ!^^!YG&&@@@@&#G5YY5PGBGBBG5YPBBB#B#####                                          
+                                        7J5Y??J55PB#BPPYYY5555YY5JYYY?~:~JG&&&&&&BPJJJYYYYYJJJJJYPGBB&&###&&.                                         
+                                        75YJ????77?JJYYJJJJJJJJ?????J7~^~JPB&###BP5YYYJ???J?77JY5PGGB#&&#BG&:                                         
+                                        :G5J?7!~!7?JYJJ?7JJJ?!!!7JJ?J!^^!7YP&#5G##PY?7?7?J7!!?YYPBGG###BBB5G~                                         
+                                        .PYJJ!77~~!!7JJY!!!!~~!YGY!!7~^~7!?5#&#&&&&&GPPP5?77JJ5PGY5GB#B#GPYGJ                                         
+                                        .PYYJ?7!77~!!77??~~~75G5?J5PPY?J555#&@@@@&&&BBG5GBBBBBB5JYPB##BBYYPPG                                         
+                                        .55YY??!!J??7!7!?YGBB5!~~7?YY5PB&&&&&&&&&&#BBPYYPGBGP55P#&&&#BB5J5P5B.                                        
+                                        .PPJYYJJ7~7J55PGB#BY7?!~~!!!!!~YGGGGPGBBBBB#P5GB#&#GGGGPPPB#GG#YJGPP#~                                        
+                                        .5GJJ55YJY5PB#GGPJ7!!7?Y?!!7!!7PG5YYJJ5P5G#5PBB&#B#&&&G5PGB#&G#57#GYB?                                        
+                                         7GP5YJ5B&##GJ?JJJY5J77?JJ7!!7JPP5J?775PB##G#&&&#&@@@#PPPPG#&#BPJ&GJPY                                        
+                                          JGPPPG##JJYPGBGY?7J?7?7YYYYYY55YJ?5B&&@##&@&#&&&&&#PP5P5PB&#B#5#GGGJ                                        
+                                          7GGPPB#GJ5PGB####BGGGBBBBBB#BBGB###BGB#J75#P5#&GPGP5#BYGPB&&BBG#B#B?                                        
+                                          ^PPPP5PG5YPGGYJG#@&GP!7Y...?^.:!5?::^7Y:~YBB5P5PPGGPB&5P##&#BGG##&B7                                        
+                                          .55PGP55PYP5JY7??YPG#PYP^:.!~...!Y^::Y5?YPPPPP5Y5B&GG#BG&&&GBGG###B7                                        
+                                          .5555PPYPPYY75J77??JY5PPY5J?J5777Y??Y555PY55PGPJPB#BGB&B&@BPBB#&##GJ                                        
+                                          .Y5Y55P5YYP5JYY?7Y7!!?????YJYJYY557J?JYYPJ?Y5G&Y5B&#GB&##@BPGP#&&BG7                                        
+                                           J55P555J?5GYJ5?7YJ??J7!!7J~~~7?YG7?7?YPB5JYP##YPB##PG&##&#GBG&&&BG~                                        
+                                           JP5P555?7JG57?7!YY7~?J??YGYJYJ5G#5?7?YG#J7?P##Y5B&#5GB&#&&GBG&&&GG.                                        
+                                           ^GPG555Y7?55!?7^!5?!?Y77?5P???5B#G7!?YG#Y7JP#B?5B&#PBB&&&&GGP&&#BY                                         
+                                           ^BGG5Y55?!J5JY?^~J?!75J7?PGJJJYG#BJ??YP#GY?5##Y5G#&PB#&&&##BP&#BB~                                         
+                                           :GBBPY55J!?5?YJ!~?!~755?J5GYJJ5GBBJ?JYPGG??YB#?J5B&#G##&#B&#G&BGP.                                         
+                                            7BBGP555?Y5Y5???Y7!!?5775GJ?JY5GB7!7?Y5BY!YB&Y75BB&B#######B&GB?                                          
+                                             7B#GP55555JPY?J5?77JP?7?P?77?5P#P77??JPG7?5BBJ5GG#&BPB#&#B&#B#:                                          
+                                              !B#BGPPP5JY5YJ5?7!??!!Y5?!!7?JGB777!?Y#57YG##YGGBB#GB#&#G&B&5                                           
+                                               ~G##GPGGGY??557!!JJ7775?~~!!JGBJ7?7JP#G?J5B##GGGG#&B#&###&&.                                           
+                                                :YB#BGBGY7Y5JJ!7YY7~!5J7~~!?P#5JJJ55GB!?5PP#&G55B#&BB#&@&^                                            
+                                                  !5BB#G57YY??!?Y?7!!P5J777JG&G?J55PG#??5PB#&BYPBB##5&@&^                                             
+                                                   .7PPB5JP5J7!JY7777PPY77JYP#BJJ5555#YJPGG#@P5##BB&#@P.                                              
+                                                     :?5PJ55???PPYJJ?YG5JJ5Y5#BJ?555P#5JPGB&@BPB#B&@G^                                                
+                                                       ~5GP5JJJJPP55J5BPPPPPG&#55PGPG#G5GB#&&PB&&&P:                                                  
+                                                        .!G#G55J5GPPPG##GGB##&&GGBB##&BGBB&@@&@&Y:                                                    
+                                                          .~PBBGP#BBB##&&B###&@#B##&&@&#&&@@&G!.                                                      
+                                                             .7P#&&&&&&@@&&&&@@@&&&&@@@@@&P!.                                                         
+                                                                .~?5G#&&@@@@@@@@@@@@@&G?:                                                             
+                                                                     ..^!?JYYYYYYJ!^.                                                                 
+                                                                                                                                                      
+                                                                                                                                                      
+                                                                                                                                                      
+"
+  remotingSecurity:
+    enabled: true
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          name: "Administrator"
+          password: ${ADMIN_PASSWORD}
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            description: "Whanos administrator"
+            permissions:
+              - "Overall/Administer"
+            assignments:
+              - "admin"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+
+jobs:
+  - file: /jenkins/job_dsl.groovy
