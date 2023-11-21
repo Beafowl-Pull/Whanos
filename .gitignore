@@ -2,6 +2,8 @@ whanos_example_apps
 here.json
 whanos_config.yml
 
+test
+
 .idea
 .vscode
 .env
