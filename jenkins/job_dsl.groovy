@@ -14,6 +14,7 @@ def languages = ["c", "java", "javascript", "python", "befunge", "cpp", "brainfu
 def createLanguageJob(language) {
     freeStyleJob("Whanos base images/whanos-$language") {
         steps {
+            shell("/jenkins/display_rand_wanos.sh")
             shell("docker build /images/$language -f /images/$language/Dockerfile.base -t whanos-$language")
         }
     }
