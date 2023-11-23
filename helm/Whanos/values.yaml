@@ -5,4 +5,4 @@ whanos:
 
   docker:
     registry:
-    host:w
+    host:

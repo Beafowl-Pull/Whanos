@@ -10,7 +10,6 @@ FROM alpine:latest
 
 RUN apk add --no-cache bash
 SHELL ["/bin/bash", "-c"]
-RUN ls -la
 COPY --from=builder /app /app
 WORKDIR /app
 CMD ["./compiled-app"]
