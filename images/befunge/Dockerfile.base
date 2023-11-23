@@ -1,0 +1,8 @@
+FROM node:latest
+
+RUN apt-get update && apt-get install -y bash
+SHELL ["/bin/bash", "-c"]
+RUN npm i befunge93 -g
+ONBUILD COPY . /app
+ONBUILD WORKDIR /app
+ONBUILD CMD befunge93 app/main.bf

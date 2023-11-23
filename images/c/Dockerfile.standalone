@@ -1,0 +1,15 @@
+FROM gcc:latest as builder
+
+SHELL ["/bin/bash", "-c"]
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
+RUN make
+
+FROM alpine:latest
+
+RUN apk add --no-cache bash
+SHELL ["/bin/bash", "-c"]
+COPY --from=builder /app /app
+WORKDIR /app
+CMD ["./compiled-app"]

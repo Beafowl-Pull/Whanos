@@ -1,0 +1,7 @@
+FROM python:3.12.0-bullseye
+
+SHELL ["/bin/bash", "-c"]
+ONBUILD COPY . /app
+ONBUILD WORKDIR /app
+ONBUILD RUN pip install -r requirements.txt
+ONBUILD CMD ["python", "-m", "app"]
