@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN apk add --no-cache bash
+RUN apt-get update && apt-get install -y bash
 SHELL ["/bin/bash", "-c"]
 RUN npm i befunge93 -g
 ONBUILD COPY . /app

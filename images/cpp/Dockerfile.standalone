@@ -2,7 +2,8 @@ FROM gcc:latest as builder
 
 RUN apt-get update && apt-get install -y cmake
 SHELL ["/bin/bash", "-c"]
-COPY ./app /app
+RUN mkdir /app
+COPY . /app
 WORKDIR /app
 RUN cmake -S . -B build && cmake --build build
 
@@ -10,6 +11,7 @@ FROM alpine:latest
 
 RUN apk add --no-cache libstdc++ libgcc bash
 SHELL ["/bin/bash", "-c"]
+RUN mkdir /app
 COPY --from=builder /app/build/ /app
 WORKDIR /app
 CMD ["./compiled-app"]

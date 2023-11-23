@@ -3,4 +3,5 @@ job-dsl
 script-security
 role-strategy
 parameterized-trigger
+ws-cleanup
 git
