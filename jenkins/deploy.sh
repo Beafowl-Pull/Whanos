@@ -12,12 +12,12 @@ function detect_language() {
     local language_detected=()
     for file in "${!file_patterns[@]}"; do
         if [[ -f "$file" ]]; then
-            language_detected+=("${file_patterns[$file]}")
+            language_detected=("${file_patterns[$file]}")
             continue
         fi
     done
     if [[ -f "Makefile" && $(find . -type f -name "*.bf") != "" ]]; then
-        language_detected+=("brainfuck")
+        language_detected=("brainfuck")
     fi
     echo "${language_detected[@]}"
 }
@@ -26,8 +26,9 @@ function build_and_push_image() {
     if [[ ! -f Dockerfile ]]; then
         docker build -f /images/$2/Dockerfile.standalone -t ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 .
         docker push ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 || exit 1
+    else
+      docker build -t ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 .
     fi
-    docker build -t ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 .
 }
 
 function deploy_or_clean() {
