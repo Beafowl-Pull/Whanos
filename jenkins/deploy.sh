@@ -59,7 +59,7 @@ function detect_language() {
     if [[ -f "Makefile" && -f "CMakeLists.txt" ]]; then
       language_detected=("cpp")
     fi
-    if [[ -f "Makefile" && $(find . -type f -name "*.bf") != "" ]]; then
+    if [[ $(is_brainfuck) == true ]]; then
         language_detected=("brainfuck")
     fi
     echo "${language_detected[@]}"
