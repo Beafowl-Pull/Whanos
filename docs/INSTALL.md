@@ -57,7 +57,7 @@ whanos:
     # the repository to pull the jenkins image created by docker build . (at the root of the repo)
     image: 
     # the password has to be encoded in base64
-    adminpassword: 
+    password: 
   docker:
     # this is the docker registry base url
     registry:

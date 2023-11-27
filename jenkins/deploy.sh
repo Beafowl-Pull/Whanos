@@ -100,5 +100,10 @@ fi
 echo "${LANGUAGES[0]} matched"
 
 build_and_push_image "$1" "${LANGUAGES[0]}"
+<<<<<<< Updated upstream
 #deploy_or_clean "$1"
+=======
+deploy_or_clean "$1"
+LANGUAGES=''
+>>>>>>> Stashed changes
 # ------------   End Main function   ------------
