@@ -1,8 +1,7 @@
 whanos:
   jenkins:
-    image: "whanos-jenkins"
-    password: "bGFiaXRlYWR1ZHVsZQ=="
-    ip: "192.168.0.42"
+    image:
+    password:
   docker:
-    registry: registry.myfdp.online:8080
+    registry:
     host: tcp://dind-service:2375

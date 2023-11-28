@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # This script is used to deploy the application on the server
-PORT=2
-USER=root
-SERVER=support.softwan.fr
-PASSWORD=T@mybba0907
+PORT=
+USER=
+SERVER=
+PASSWORD=
 
 # Check if the server is reachable
 function checkServer() {
