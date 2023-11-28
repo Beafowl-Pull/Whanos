@@ -57,7 +57,7 @@ whanos:
     # the repository to pull the jenkins image created by docker build . (at the root of the repo)
     image: 
     # the password has to be encoded in base64
-    adminpassword: 
+    password: 
   docker:
     # this is the docker registry base url
     registry:
@@ -66,9 +66,22 @@ whanos:
 ```
 
 ### Running the project
+First thing first you need to build the jenkins image:
+```bash
+eval $(minikube docker-env)
+docker build -t my-local-image .
+```
+
+Then you can install the helm chart on your machine
+
 ```bash
 helm install whanos helm/Whanos -f my_config.yaml
 ```
 
 ### Conclusion
-Your whanos instance is now running on `http://<your-load-balancer-ip>:8080`.
+Your whanos instance is now running on `http://<your-nodeport-ip>:8080`.
+
+To get the ip of your load balancer you can run the following command:
+```bash
+kubectl get svc jenkins-nodeport
+```

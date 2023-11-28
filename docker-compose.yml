@@ -22,4 +22,4 @@ services:
     environment:
       - DOCKER_TLS_CERTDIR=
     volumes:
-      - ./daemon.json:/etc/docker/daemon.json
+      - ./utils/daemon.json:/etc/docker/daemon.json

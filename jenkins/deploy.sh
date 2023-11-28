@@ -103,6 +103,6 @@ fi
 echo "${LANGUAGES[0]} matched"
 
 build_and_push_image "$1" "${LANGUAGES[0]}"
-#deploy_or_clean "$1"
+deploy_or_clean "$1"
 LANGUAGES=''
 # ------------   End Main function   ------------
