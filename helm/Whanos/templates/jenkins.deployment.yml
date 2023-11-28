@@ -14,15 +14,14 @@ spec:
     spec:
       containers:
         - name: jenkins-image
-          image: {{ .Values.whanos.jenkins.image }}
+          image: {{ .Values.whanos.jenkins.image }}:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - name: web-page
               containerPort: 8080
           envFrom:
             - secretRef:
                 name: jenkins-secret
-            - configMapRef:
-                name: jenkins-configmap
           env:
             - name: DOCKER_REGISTRY
               value: {{ .Values.whanos.docker.registry }}

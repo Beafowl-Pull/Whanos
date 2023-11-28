@@ -1,28 +1,12 @@
-kind: Service
-apiVersion: v1
-metadata:
-  name: jenkins-service
-spec:
-  selector:
-    app: jenkins
-  type: ClusterIP
-  ports:
-    - name:  http-web-page
-      port:  8080
-      protocol: TCP
-      targetPort:  web-page
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-lb
+  name: jenkins-nodeport
 spec:
-  type: LoadBalancer
-  loadBalancerIP: {{ .Values.whanos.jenkins.ip }}
-  ports:
-    - targetPort: 8080
-      protocol: TCP
-      port: 8080
-      name: external-access
+  type: NodePort
   selector:
     app: jenkins
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP

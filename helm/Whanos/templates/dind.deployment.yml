@@ -28,6 +28,6 @@ spec:
               subPath: daemon.json
       volumes:
         - name: daemon-config
-          persistentVolumeClaim:
-            claimName: dind-pvc
+          configMap:
+            name: dind-config
       restartPolicy: Always
