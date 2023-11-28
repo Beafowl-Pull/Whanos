@@ -44,7 +44,6 @@ freeStyleJob("link-project") {
                     scm {
                         git {
                             remote {
-                                name("origin")
                                 url("$GIT_URL")
                             }
                         }
