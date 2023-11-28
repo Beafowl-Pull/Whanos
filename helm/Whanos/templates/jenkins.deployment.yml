@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins-deployment
-  annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   replicas: 1
   selector:
@@ -13,12 +11,11 @@ spec:
     metadata:
       labels:
         app: jenkins
-      annotations:
-        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       containers:
         - name: jenkins-image
-          image: {{ .Values.whanos.jenkins.image }}
+          image: {{ .Values.whanos.jenkins.image }}:latest
+          imagePullPolicy: IfNotPresent
           ports:
             - name: web-page
               containerPort: 8080

@@ -2,7 +2,6 @@ whanos:
   jenkins:
     image:
     password:
-
   docker:
     registry:
-    host:
+    host: tcp://dind-service:2375
