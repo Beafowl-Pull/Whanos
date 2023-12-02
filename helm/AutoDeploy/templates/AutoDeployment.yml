@@ -1,48 +1,64 @@
-apiVersion: apps/v1
-kind: AutoDeployment
+apiVersion: v1
+kind: ServiceAccount
 metadata:
-  name: {{ .Release.Name }}-deployment
-  annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
+  name: default
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: service-reader
+rules:
+  - apiGroups: [""]
+    resources: ["services"]
+    verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: service-reader-binding
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: service-reader
+  apiGroup: rbac.authorization.k8s.io
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentName }}
 spec:
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
-      annotations:
-        rollme: {{ randAlphaNum 5 | quote }}
+        app: {{ .Values.appName }}
     spec:
+      serviceAccountName: default  # Use the service account you created
       containers:
-        - name: {{ .Values.image.name }}
-          image: {{ .Values.image.image }}
-          {{- if .Values.deployment.resources }}
-          resources: {{ .Values.deployment.resources | toJson }}
-          {{- end }}
-          {{- if .Values.deployment.ports }}
+        - name: {{ .Values.containerName }}
+          image: {{ .Values.imageName }}:{{ .Values.imageTag }}
           ports:
-            {{- range .Values.deployment.ports }}
-            - containerPort: {{ . }}
-            {{- end }}
-          {{- end }}
-  {{- if .Values.deployment.ports }}
+            - containerPort: {{ .Values.containerPort }}
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-lb
+  name: {{ .Values.serviceName }}
 spec:
-  type: LoadBalancer
-  ports:
-    {{- range .Values.deployment.ports }}
-    - targetPort: {{ . }}
-      protocol: TCP
-      port: {{ . }}
-      name: {{ . | quote }}
-    {{- end }}
   selector:
-    app: {{ .Release.Name }}
-  {{- end }}
+    app: {{ .Values.appName }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.servicePort }}
+      targetPort: {{ .Values.containerPort }}
+  type: LoadBalancer
