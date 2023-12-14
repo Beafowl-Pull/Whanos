@@ -13,6 +13,7 @@ services:
       - 8080:8080
     depends_on:
       - docker
+
   docker:
     image: docker:dind
     restart: unless-stopped
@@ -23,3 +24,12 @@ services:
       - DOCKER_TLS_CERTDIR=
     volumes:
       - ./utils/daemon.json:/etc/docker/daemon.json
+
+  registry:
+    image: registry:2
+    ports:
+      - "5000:5000"
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    volumes:
+      - ./data:/data

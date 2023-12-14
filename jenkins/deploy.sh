@@ -74,12 +74,13 @@ function build_and_push_image() {
         docker push ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 || exit 1
     else
       docker build -t ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 .
+      docker push ${DOCKER_REGISTRY}/whanos/whanos-$1-$2 || exit 1
     fi
 }
 
 function deploy_or_clean() {
     if [[ -f whanos.yml ]]; then
-        helm upgrade -if whanos.yml "$1" /helm/AutoDeploy --set image.image="$image_name" --set image.name="$1-name"
+        helm upgrade -if whanos.yml "$1" /helm/AutoDeploy --set image.image="${DOCKER_REGISTRY}/whanos/whanos-$1-$2" --set image.name="$1-name"
         get_external_ip "$1"
     else
         if helm status "$1" &> /dev/null; then
@@ -103,6 +104,6 @@ fi
 echo "${LANGUAGES[0]} matched"
 
 build_and_push_image "$1" "${LANGUAGES[0]}"
-deploy_or_clean "$1"
+deploy_or_clean "$1" "${LANGUAGES[0]}"
 LANGUAGES=''
 # ------------   End Main function   ------------

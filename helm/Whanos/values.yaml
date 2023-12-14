@@ -1,7 +1,7 @@
 whanos:
   jenkins:
-    image:
-    password:
+    image: whanos-jenkins
+    password: <your password hashed in base10>
   docker:
-    registry:
+    registry: <your registry>
     host: tcp://dind-service:2375

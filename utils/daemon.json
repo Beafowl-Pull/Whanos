@@ -1,3 +1,3 @@
 {
-  "insecure-registries" : ["registry.myfdp.online:8080"]
+  "insecure-registries" : ["<your registry>"]
 }
