@@ -1,8 +1,0 @@
-[Unit]
-Description=Reboot service
-
-[Service]
-ExecStart=/usr/bin/reboot
-
-[Install]
-WantedBy=multi-user.target
