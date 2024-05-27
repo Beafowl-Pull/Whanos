@@ -18,15 +18,18 @@ RUN curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key a
 RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list
 
 # Add Docker repository and key
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
-    && echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" >> /etc/apt/sources.list.d/additional-repositories.list \
-    && apt-get update
+RUN curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+RUN echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+RUN sudo apt-get update
+
+RUN sudo apt-get install -y kubelet kubeadm kubectl
+
+RUN sudo apt-mark hold kubelet kubeadm kubectl
 
 # Install Docker, kubeadm, kubelet, and kubectl
-RUN apt-get -y install docker-ce kubectl
-
-# Mark kubelet and kubectl to hold updates
-RUN apt-mark hold kubectl
+RUN apt-get -y install docker-ce
 
 # Additional setup for Jenkins and Docker
 RUN usermod -aG docker jenkins \
